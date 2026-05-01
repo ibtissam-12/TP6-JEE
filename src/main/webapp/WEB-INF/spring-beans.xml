@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bean DAO -->
+    <bean id="produitDAO" class="dao.ProduitDAOImpl" init-method="init"/>
+    
+    <!-- Bean Service avec injection du DAO -->
+    <bean id="produitMetier" class="services.ProduitMetierImpl">
+        <property name="dao" ref="produitDAO"/>
+    </bean>
+
+</beans>
